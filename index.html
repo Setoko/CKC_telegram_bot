@@ -58,6 +58,7 @@
         }
 
         input {
+            text-align: center;
             border: 0;
             border-radius: 5px;
             margin-top: 50px;
@@ -70,6 +71,20 @@
             color: var(--tg-theme-button-color);
             background: var(--tg-theme-button-text-color);
         }
+
+        #form {
+            display: none;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            color: var(--tg-theme-text-color);
+            background: var(--tg-theme-secondary-bg-color);
+        }
     </style>
 </head>
 <body>
@@ -80,12 +95,16 @@
         <button id="to_form">Форма</button>
     </div>
 
-    <form id="form" style="display: none;">
-        <input type="text" placeholder="Имя" id="user_name">
-        <input type="text" placeholder="Фамилия" id="user_lastname">
-        <input type="text" placeholder="Номер телефона" id="user_phone">
-        <button id="accept">Подтвердить</button>
-    </form>
+    <div style="text-align: center;">
+        <form id="form">
+            <h1>Введите ваши данные</h1>
+                <input type="text" placeholder="Имя" id="user_name">
+                <input type="text" placeholder="Фамилия" id="user_lastname">
+                <input type="text" placeholder="Номер телефона" id="user_phone">
+            <button id="accept">Подтвердить</button>
+        </form>
+    </div>
+    
 
     <script>
         let tg = window.Telegram.WebApp;
