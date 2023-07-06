@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 200;
+            color: var(--tg-theme-text-color);
+            background: var(--tg-theme-bg-color);
+        }
+
+        #main {
+            width: 100%;
+            padding: 200;
+            text-align: center;
+        }
+
+        h1 { 
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            width: 350px;
+            margin: 0 auto;
+        }
+
+        button {
+            border: 0;
+            border-radius: 5px;
+            margin-top: 50px;
+            height: 60px;
+            width: 200px;
+            font-size: 20px;
+            font-weight: 500px;
+            cursor: pointer;
+            transition: all 500ms ease;
+            color: var(--tg-theme-button-color);
+            background: var(--tg-theme-button-text-color);
+        }
+
+        button:hover {
+            background: var(--tg-theme-secondary-bg-color);
+        }
+    </style>
+</head>
+<body>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <div id="main">
+        <h1>Приветствуем вас!</h1>
+        <p>Нажмите на кнопку:</p>
+        <button id="form">Форма</button>
+    </div>
+</body>
+</html>
