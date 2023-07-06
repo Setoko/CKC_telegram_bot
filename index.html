@@ -57,7 +57,7 @@
     <div id="main">
         <h1>Приветствуем вас!</h1>
         <p>Нажмите на кнопку:</p>
-        <button id="next">Форма</button>
+        <button id="to_form">Форма</button>
     </div>
 
     <form id="form">
@@ -69,8 +69,8 @@
 
     <script>
         let tg = window.Telegram.WebApp;
-        let next = document.getElementById("next")
-        let accept = document.getElementById("accept")
+        let to_form = document.getElementById("to_form")
+        let form = document.getElementById("form")
 
         form.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
