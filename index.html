@@ -117,7 +117,16 @@
         })
 
         accept.addEventListener("click", () => {
-            tg.close();
+            let name = document.getElementById("user_name").value;
+            let lastname = document.getElementById("user_lastname").value;
+            let phone = document.getElementById("user_phone").value;
+            
+            let data = {
+                name: name,
+                lastname: lastname,
+                phone: phone
+            }
+            tg.sendData(JSON.stringify(data));
         })
     </script>
 </body>
