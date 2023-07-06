@@ -59,5 +59,27 @@
         <p>Нажмите на кнопку:</p>
         <button id="form">Форма</button>
     </div>
+
+    <form id="form">
+        <input type="text" placeholder="Имя" id="user_name">
+        <input type="text" placeholder="Фамилия" id="user_lastname">
+        <input type="text" placeholder="Номер телефона" id="user_phone">
+        <button id="accept">Подтвердить</button>
+    </form>
+
+    <script>
+        let tg = window.Telegram.WebApp;
+        let form = document.getElementById("form")
+        let accept = document.getElementById("accept")
+
+        form.addEventListener("click", () => {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("form").style.display = "block";
+        })
+
+        accept.addEventListener("click", () => {
+            tg.close();
+        })
+    </script>
 </body>
 </html>
