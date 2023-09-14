@@ -85,6 +85,10 @@
             color: var(--tg-theme-text-color);
             background: var(--tg-theme-secondary-bg-color);
         }
+
+        input:required:invalid {
+	        border:2px solid red;
+        }   
     </style>
 </head>
 <body>
@@ -97,16 +101,19 @@
     <div style="text-align: center;">
         <form id="form">
             <h1>Введите ваши данные</h1>
-                <input type="text" placeholder="Имя" id="name">
-                <input type="text" placeholder="Фамилия" id="lastname">
-                <input type="text" placeholder="отчество" id="Patronymic">
-                <input type="date" id="date" name="date"/>
+                <input type="text" placeholder="Имя" id="name" pattern="[А-Яа-яЁё\s]*" minlength="2" required>
+                <input type="text" placeholder="Фамилия" id="lastname" pattern="[А-Яа-яЁё\s]*" minlength="2" required>
+                <input type="text" placeholder="отчество" id="patronymic" pattern="[А-Яа-яЁё\s]*" minlength="2" required>
+                <input type="date" id="datePickerId" name="date" max="" required>
+                <div id="error"></div> 
             <button id="accept">Подтвердить</button>
         </form>
     </div>
     
 
     <script>
+        datePickerId.max = new Date().toISOString().split("T")[0];
+
         let tg = window.Telegram.WebApp;
         let to_form = document.getElementById("to_form")
         let form = document.getElementById("form")
@@ -117,16 +124,21 @@
         })
 
         accept.addEventListener("click", () => {
-            let name = document.getElementById("user_name").value;
-            let lastname = document.getElementById("user_lastname").value;
-            let phone = document.getElementById("user_phone").value;
+            let name = document.getElementById("name").value;
+            let lastname = document.getElementById("lastname").value;
+            let patronymic = document.getElementById("patronymic").value;
+            let date = document.getElementById("datePickerId").value;
+            
             
             let data = {
                 name: name,
                 lastname: lastname,
-                phone: phone
+                patronymic: patronymic,
+                date: date
             }
+
             tg.sendData(JSON.stringify(data));
+            tg.close();
         })
     </script>
 </body>
